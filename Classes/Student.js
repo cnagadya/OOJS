@@ -1,7 +1,8 @@
 class Student {
-  constructor(gpa, courses) {
+  constructor(gpa, courses, credits) {
     this.gpa = gpa;
     this.courses = courses;
+    this.credits = credits;
   }
   stringGPA() {
     return this.gpa.toString();
@@ -15,9 +16,21 @@ class Student {
     this.courses.push(course);
   }
 
+  get level() {
+    if (this.credits <= 30) {
+      return "Freshman";
+    } else if (this.credits <= 60) {
+      return "Sophomore";
+    } else if (this.credits <= 90) {
+      return "Junior";
+    } else {
+      return "Senior";
+    }
+  }
 }
 
-const christine = new Student(3.9, []);
-christine.addCourse("Maths")
+const christine = new Student(3.9, [], 97);
+christine.addCourse("Maths");
 
-console.log(christine)
+console.log(christine);
+console.log(christine.level);
