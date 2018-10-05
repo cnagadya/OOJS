@@ -27,6 +27,14 @@ class Student {
       return "Senior";
     }
   }
+
+  set major(major) {
+    if (["Senior", "Junior"].includes(this.level)) {
+      this._major = major;
+    } else {
+      this._major = "None";
+    }
+  }
 }
 
 const christine = new Student(3.9, [], 97);
